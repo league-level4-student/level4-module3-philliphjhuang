@@ -12,16 +12,16 @@ class ExceptionsTest {
 	//   It tests that an IndexOutOfBoundsException is thrown 
 	@Test
 	public void testIndexOOBException() {
-		int[] vars = {0, 1, 2, 3};
-			
+		int[] vars = { 0, 1, 2, 3 };
+
 		try {
 			vars[0] = 4;
-			assertArrayEquals(vars, new int[] {4, 1, 2, 3});
+			assertArrayEquals(vars, new int[] { 4, 1, 2, 3 });
 			vars[4] = 5;
 			fail("IndexOutOfBoundsException not thrown");
-		}catch(IndexOutOfBoundsException e) {
+		} catch (IndexOutOfBoundsException e) {
 			e.printStackTrace();
-			assertArrayEquals(vars, new int[] {4, 1, 2, 3});
+			assertArrayEquals(vars, new int[] { 4, 1, 2, 3 });
 		}
 	}
 	
@@ -32,6 +32,11 @@ class ExceptionsTest {
 	//3. Complete the JUnit test method to test the divide method.
 	@Test
 	public void testDivideByZeroException() {
+		try {
+			em.divide(10, 5);
+		} catch(Exception e) {
+			System.out.println("Can't have 0 as denominator");
+		}
 		
 	}
 	
@@ -42,7 +47,11 @@ class ExceptionsTest {
 	//5. Complete the JUnit test method to test the reverseStringMethod.
 	@Test
 	public void testReverseString() {
-		
+		try {
+			em.reverseString("phillip");
+		} catch(Exception e) {
+			System.out.println("String can't be empty");
+		}
 	}
 	
 	
